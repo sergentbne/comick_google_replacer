@@ -28,6 +28,7 @@ function waitForElement(selector) {
   });
 }
 
+//trust
 waitForElement(".-mx-2 > div:nth-child(1)").then((element) => {
   document.querySelector(".-mx-2 > div:nth-child(1)").childNodes.forEach(
     (a) => {
