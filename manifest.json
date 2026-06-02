@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Replace Google Link to Duckduckgo (Comick)",
+  "version": "1.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "@replace-google-links-with-duckduckgo-comick",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "permissions": [],
+  "host_permissions": ["https://comick.dev/comic/*"],
+  "action": {},
+  "content_scripts": [
+    {
+      "matches": ["https://comick.dev/comic/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
