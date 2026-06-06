@@ -1,8 +1,12 @@
-.PHONY: build check clean zip xpi
+.PHONY: xpi check clean zip build
 
 DIST := dist
-ZIP := extension.zip
-XPI := extension.xpi
+ZIP := comick_google_replacer.zip
+XPI := comick_google_replacer.xpi
+
+xpi: check
+	rm -f "$(XPI)"
+	zip -r "$(XPI)" manifest.json content.js
 
 build: check
 	rm -rf "$(DIST)"
@@ -12,10 +16,6 @@ build: check
 zip: build
 	rm -f "$(ZIP)"
 	zip -r "$(ZIP)" "$(DIST)"
-
-xpi: check
-	rm -f "$(XPI)"
-	zip -r "$(XPI)" manifest.json content.js
 
 check:
 	node --check content.js
