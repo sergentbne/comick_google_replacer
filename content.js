@@ -13,7 +13,7 @@ function waitForElement(selector) {
 		}
 
 		// If not, create an observer to watch for changes.
-		const observer = new MutationObserver((mutations) => {
+		const observer = new MutationObserver((_) => {
 			if (document.querySelector(selector)) {
 				observer.disconnect(); // Stop observing once the element is found.
 				resolve(document.querySelector(selector));
@@ -38,7 +38,7 @@ function rewriteLinks() {
 		} catch (e) { }
 	});
 }
-
+await waitForElement()
 rewriteLinks();
 
 const observer = new MutationObserver(() => rewriteLinks());
