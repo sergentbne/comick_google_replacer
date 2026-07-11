@@ -3,7 +3,8 @@ const ORIGINAL = "https://google.com/search";
 const REPLACEMENT = "https://duckduckgo.com";
 
 // Extra guard: ensure script really runs on intended origin
-if (location.origin !== "https://comick.dev") throw 0;
+console.log(`[COMICK_REPLACER] ${location.origin}`)
+if (location.origin !== "https://comick.dev") throw "Not executed on the right site";
 
 function waitForElement(selector) {
 	return new Promise((resolve) => {
